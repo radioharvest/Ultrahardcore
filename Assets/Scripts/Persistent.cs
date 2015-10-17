@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Persistent : MonoBehaviour
 {
+	public string AutoLoadLevel;
+
 	void Start()
 	{
 		DontDestroyOnLoad(this);
@@ -17,6 +19,12 @@ public class Persistent : MonoBehaviour
 			{
 				DontDestroyOnLoad(childGameObject);
 			}
+		}
+
+		// Load next level
+		if (AutoLoadLevel.Length > 0)
+		{
+			Application.LoadLevel(AutoLoadLevel);
 		}
 	}
 }

@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0769b6fdb394d4188c39ca3d749793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AutoLoadLevel: Ultrahardcore
 --- !u!4 &1764884257
 Transform:
   m_ObjectHideFlags: 0

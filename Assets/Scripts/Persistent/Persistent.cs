@@ -31,6 +31,9 @@ public class Persistent : MonoBehaviour
 		}
 	}
 
+	const string PREFERENCES_OBJECT_NAME = "Preferences";
+	const string GAMEDATA_OBJECT_NAME = "Game Data";
+
 	// Preferences accessor
 	static Preferences m_Preferences;
 	static bool m_PreferencesNotFound = false;
@@ -40,7 +43,7 @@ public class Persistent : MonoBehaviour
 		{
 			if (m_Preferences == null && !m_PreferencesNotFound)
 			{
-				m_Preferences = FindGlobalComponentByName<Preferences>("Preferences");
+				m_Preferences = FindGlobalComponentByName<Preferences>(PREFERENCES_OBJECT_NAME);
 				m_PreferencesNotFound = (m_Preferences == null);
 			}
 
@@ -57,7 +60,7 @@ public class Persistent : MonoBehaviour
 		{
 			if (m_GameData == null && !m_GameDataNotFound)
 			{
-				m_GameData = FindGlobalComponentByName<GameData>("GameData");
+				m_GameData = FindGlobalComponentByName<GameData>(GAMEDATA_OBJECT_NAME);
 				m_GameDataNotFound = (m_GameData == null);
 			}
 

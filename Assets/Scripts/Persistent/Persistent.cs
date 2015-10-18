@@ -57,7 +57,7 @@ public class Persistent : MonoBehaviour
 		{
 			if (m_GameData == null && !m_GameDataNotFound)
 			{
-				m_GameData = FindGlobalComponentByName<GameData>("Data");
+				m_GameData = FindGlobalComponentByName<GameData>("GameData");
 				m_GameDataNotFound = (m_GameData == null);
 			}
 

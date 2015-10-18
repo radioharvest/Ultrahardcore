@@ -7,24 +7,27 @@ public class Persistent : MonoBehaviour
 
 	void Start()
 	{
-		DontDestroyOnLoad(this);
-
-		// Make children persistent
-		int numChildren = transform.childCount;
-		for (int i = 0; i < numChildren; i++)
-		{
-			Transform childTransform = transform.GetChild(i);
-			GameObject childGameObject = childTransform.gameObject;
-			if (childGameObject != null)
-			{
-				DontDestroyOnLoad(childGameObject);
-			}
-		}
+		RecursivelyMakePersistent(transform);
 
 		// Load next level
 		if (AutoLoadLevel.Length > 0)
 		{
 			Application.LoadLevel(AutoLoadLevel);
+		}
+	}
+
+	void RecursivelyMakePersistent(Transform tr)
+	{
+		if (tr.gameObject != null)
+		{
+			DontDestroyOnLoad(tr.gameObject);
+		}
+
+		// Make children persistent
+		int numChildren = tr.childCount;
+		for (int i = 0; i < numChildren; i++)
+		{
+			RecursivelyMakePersistent(tr.GetChild(i));
 		}
 	}
 }
